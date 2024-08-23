@@ -30,11 +30,14 @@ jobs:
     - run: npm run build
     - name: Setup Pages
       uses: actions/configure-pages@v4
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         # Upload dist folder
         path: './dist'
+        github_token: ${{ secrets.GH_TOKEN }}
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4

@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ExampleList } from "./components/Example/ExampleList";
 import styles from "./App.module.css";
 
@@ -13,9 +13,17 @@ function App() {
   }
 
   const [promptValue, setPromptValue] = useState<string>("");
+  const questionInputRef = useRef<HTMLInputElement>(null);
 
   const onExampleClicked = (example: Examples) => {
     setPromptValue(example.questionpart);
+    setTimeout(() => {
+      if (questionInputRef.current) {
+        questionInputRef.current.focus();
+        questionInputRef.current.setSelectionRange(example.questionpart.length, example.questionpart.length);
+      }
+    }, 0);
+
   };
 
   const useGPT4V = true;
@@ -30,7 +38,7 @@ function App() {
                 useGPT4V={useGPT4V}
               />
               <div className={styles.chatInput}>
-                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" value={promptValue} setValue={setPromptValue} />
+                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" value={promptValue} setValue={setPromptValue} componentRef={questionInputRef}/>
               </div>
               <Chatbox />
             </div>

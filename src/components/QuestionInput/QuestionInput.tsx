@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import React from "react";
 import { Stack, TextField } from "@fluentui/react";
 import { Button, Tooltip } from "@fluentui/react-components";
 import { Send28Filled } from "@fluentui/react-icons";
@@ -10,9 +10,10 @@ interface Props {
   placeholder?: string;
   value?: string;
   setValue: (value: string) => void;
+  componentRef?: React.RefObject<HTMLInputElement>;
 }
 
-export const QuestionInput = ({ placeholder, value, setValue }: Props) => {
+export const QuestionInput = ({ placeholder, value, setValue, componentRef }: Props) => {
   // const [question, setQuestion] = useState<string>("");
 
   const onQuestionChange = (
@@ -35,6 +36,7 @@ export const QuestionInput = ({ placeholder, value, setValue }: Props) => {
         resizable={false}
         borderless
         value={value}
+        componentRef={componentRef}
         onChange={onQuestionChange}
       />
       <div className={styles.questionInputButtonsContainer}>

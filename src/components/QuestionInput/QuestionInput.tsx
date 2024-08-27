@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Stack, TextField } from "@fluentui/react";
 import { Button, Tooltip } from "@fluentui/react-components";
 import { Send28Filled } from "@fluentui/react-icons";
@@ -9,9 +9,10 @@ interface Props {
   initQuestion?: string;
   placeholder?: string;
   value?: string;
+  setValue: (value: string) => void;
 }
 
-export const QuestionInput = ({ placeholder, value }: Props) => {
+export const QuestionInput = ({ placeholder, value, setValue }: Props) => {
   // const [question, setQuestion] = useState<string>("");
 
   const onQuestionChange = (
@@ -19,9 +20,9 @@ export const QuestionInput = ({ placeholder, value }: Props) => {
     newValue?: string
   ) => {
     if (!newValue) {
-      setQuestion("");
+      setValue("");
     } else if (newValue.length <= 1000) {
-      setQuestion(newValue);
+      setValue(newValue);
     }
   };
 

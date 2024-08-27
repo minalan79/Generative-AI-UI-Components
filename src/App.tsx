@@ -30,7 +30,7 @@ function App() {
                 useGPT4V={useGPT4V}
               />
               <div className={styles.chatInput}>
-                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" value={promptValue} />
+                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" value={promptValue} setValue={setPromptValue} />
               </div>
               <Chatbox />
             </div>

@@ -18,16 +18,16 @@ function App() {
 
   const onExampleClicked = (example: Examples) => {
 
-    const words = example.questionpart.split(" "); // Split the string into an array of words
+    // const words = example.questionpart.split(" "); // Split the string into an array of words
 
     // Filter out words that are at the positions specified in questionvar
-    const updatedWords = words.filter((_, index) => !example.questionvar.includes(index + 1));
+    // const updatedWords = words.filter((_, index) => !example.questionvar.includes(index + 1));
 
     // Join the remaining words back into a string
-    updatedWords.join(' ');
+    // updatedWords.join(' ');
 
-    setPromptValue(updatedWords);
-    
+    setPromptValue(example.questionpart);
+
     setTimeout(() => {
       if (questionInputRef.current) {
         questionInputRef.current.focus();

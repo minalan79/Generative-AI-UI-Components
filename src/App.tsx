@@ -15,7 +15,7 @@ function App() {
   const [promptValue, setPromptValue] = useState<string>("");
 
   const onExampleClicked = (example: Examples) => {
-    console.log(example);
+    setPromptValue(example.questionpart);
   };
 
   const useGPT4V = true;

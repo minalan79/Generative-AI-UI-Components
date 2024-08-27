@@ -17,7 +17,17 @@ function App() {
   const questionInputRef = useRef<ITextField>(null);
 
   const onExampleClicked = (example: Examples) => {
-    setPromptValue(example.questionpart);
+
+    const words = example.questionpart.split(" "); // Split the string into an array of words
+
+    // Filter out words that are at the positions specified in questionvar
+    const updatedWords = words.filter((_, index) => !example.questionvar.includes(index + 1));
+
+    // Join the remaining words back into a string
+    updatedWords.join(' ');
+
+    setPromptValue(updatedWords);
+    
     setTimeout(() => {
       if (questionInputRef.current) {
         questionInputRef.current.focus();

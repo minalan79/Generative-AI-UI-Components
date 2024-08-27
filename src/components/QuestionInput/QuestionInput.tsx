@@ -8,10 +8,11 @@ import styles from "./QuestionInput.module.css";
 interface Props {
   initQuestion?: string;
   placeholder?: string;
+  value?: string;
 }
 
-export const QuestionInput = ({ placeholder }: Props) => {
-  const [question, setQuestion] = useState<string>("");
+export const QuestionInput = ({ placeholder, value }: Props) => {
+  // const [question, setQuestion] = useState<string>("");
 
   const onQuestionChange = (
     _ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -32,7 +33,7 @@ export const QuestionInput = ({ placeholder }: Props) => {
         multiline
         resizable={false}
         borderless
-        value={question}
+        value={value}
         onChange={onQuestionChange}
       />
       <div className={styles.questionInputButtonsContainer}>

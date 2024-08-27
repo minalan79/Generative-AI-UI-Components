@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import { ExampleList } from "./components/Example/ExampleList";
 import styles from "./App.module.css";
 
@@ -10,6 +11,8 @@ function App() {
     questionpart: string;
     questionvar: number[];
   }
+
+  const [promptValue, setPromptValue] = useState<string>("");
 
   const onExampleClicked = (example: Examples) => {
     console.log(example);
@@ -27,7 +30,7 @@ function App() {
                 useGPT4V={useGPT4V}
               />
               <div className={styles.chatInput}>
-                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" />
+                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" value={promptValue} />
               </div>
               <Chatbox />
             </div>

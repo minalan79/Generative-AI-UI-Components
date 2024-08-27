@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useRef } from "react";
 import { ExampleList } from "./components/Example/ExampleList";
 import styles from "./App.module.css";
+import { ITextField } from "@fluentui/react";
 
 import { QuestionInput } from "./components/QuestionInput/QuestionInput";
 
@@ -13,7 +14,7 @@ function App() {
   }
 
   const [promptValue, setPromptValue] = useState<string>("");
-  const questionInputRef = useRef<HTMLInputElement>(null);
+  const questionInputRef = useRef<ITextField>(null);
 
   const onExampleClicked = (example: Examples) => {
     setPromptValue(example.questionpart);

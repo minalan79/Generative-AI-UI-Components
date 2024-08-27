@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, TextField } from "@fluentui/react";
+import { Stack, TextField, ITextField } from "@fluentui/react";
 import { Button, Tooltip } from "@fluentui/react-components";
 import { Send28Filled } from "@fluentui/react-icons";
 
@@ -10,7 +10,7 @@ interface Props {
   placeholder?: string;
   value?: string;
   setValue: (value: string) => void;
-  componentRef?: React.RefObject<HTMLInputElement>;
+  componentRef?: React.RefObject<ITextField>;
 }
 
 export const QuestionInput = ({ placeholder, value, setValue, componentRef }: Props) => {

@@ -17,7 +17,6 @@ function App() {
   const questionInputRef = useRef<ITextField>(null);
 
   const onExampleClicked = (example: Examples) => {
-
     // const words = example.questionpart.split(" "); // Split the string into an array of words
 
     // Filter out words that are at the positions specified in questionvar
@@ -31,10 +30,9 @@ function App() {
     setTimeout(() => {
       if (questionInputRef.current) {
         questionInputRef.current.focus();
-        questionInputRef.current.setSelectionRange(example.questionpart.length, example.questionpart.length);
+        questionInputRef.current.setSelectionRange(5, 5);
       }
     }, 0);
-
   };
 
   const useGPT4V = true;
@@ -49,7 +47,12 @@ function App() {
                 useGPT4V={useGPT4V}
               />
               <div className={styles.chatInput}>
-                <QuestionInput placeholder="Type a new question (e.g. does my plan cover annual eye exams?)" value={promptValue} setValue={setPromptValue} componentRef={questionInputRef}/>
+                <QuestionInput
+                  placeholder="Type a new question (e.g. does my plan cover annual eye exams?)"
+                  value={promptValue}
+                  setValue={setPromptValue}
+                  componentRef={questionInputRef}
+                />
               </div>
               <Chatbox />
             </div>
